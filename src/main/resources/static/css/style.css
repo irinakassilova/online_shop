@@ -1,0 +1,40 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+header {
+    background-color: deepskyblue;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    color: white;
+    font-size: 13px;
+}
+
+.btn {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: white;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: deepskyblue;
+    font-size: 48px;
+    position: absolute;
+    bottom: 100px;
+    left: 10%;
+    right: 10%;
+}
+
+.slider_text {
+    color: black;
+}
+
+.carousel-indicators li {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: deepskyblue;
+}
