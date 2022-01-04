@@ -1,6 +1,5 @@
 package com.example.online_shop.controller;
 
-import com.example.online_shop.service.ProductService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,8 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@RequestMapping("/foods")
-public class ProductController {
-    private final ProductService productService;
-
+@RequestMapping
+public class CustomerController {
 }
