@@ -6,6 +6,8 @@ import com.example.online_shop.model.Category;
 import com.example.online_shop.model.Product;
 import com.example.online_shop.repository.ProductRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +19,11 @@ public class ProductService {
 
     public List<Product> findAll(){
         return productRepository.findAll();
+    }
+
+    public Page<ProductDTO> getProducts(int id, Pageable pageable) {
+        return productRepository.findAllByCategoryId(id, pageable)
+                .map(ProductDTO::from);
     }
 
     public Product findById(int id){
@@ -36,5 +43,12 @@ public class ProductService {
         product.setCategory(category);
         product.setPrice(product.getPrice());
         productRepository.save(product);
+    }
+    public Iterable<Product> findByNameIgnoreCase(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    public Iterable<Product> findByDescriptionIgnoreCase(String description) {
+        return productRepository.findByDescriptionContainingIgnoreCase(description);
     }
 }
