@@ -1,4 +1,9 @@
-create database onlineshop;
+CREATE TABLE categories (
+                            id serial PRIMARY KEY,
+                            name varchar(45) NOT NULL DEFAULT 'name category',
+                            description varchar(128) DEFAULT NULL
+);
+
 CREATE TABLE products (
                           id serial PRIMARY KEY,
                           category_id int NOT NULL,
@@ -12,12 +17,6 @@ CREATE TABLE products (
                                   REFERENCES categories(id)
                                   ON DELETE RESTRICT
                                   ON UPDATE CASCADE
-);
-
-CREATE TABLE categories (
-                            id serial PRIMARY KEY,
-                            name varchar(45) NOT NULL DEFAULT 'name category',
-                            description varchar(128) DEFAULT NULL
 );
 
 INSERT INTO categories (name, description) VALUES ('Laptops', 'Ноутбуки');

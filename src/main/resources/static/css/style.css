@@ -12,10 +12,31 @@ header {
     font-size: 13px;
 }
 
+.filter_forms {
+    display: flex;
+    justify-content:space-around;
+    margin-bottom: 70px;
+}
+
+.filter_forms form input,select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+
+.filter_forms form p {
+    height: 35px;
+}
+
 .btn {
     text-transform: uppercase;
     font-size: 14px;
-    color: white;
+    color: rgb(114, 106, 223);
+}
+
+.header_find {
+    color: rgb(28, 96, 119);
 }
 
 h1 {
@@ -32,9 +53,23 @@ h1 {
     color: black;
 }
 
+.logo {
+    height: 20px;
+    width: 20px;
+}
+
+.d_block {
+    height: 310px;
+    width: 100%;
+}
 .carousel-indicators li {
     border-radius: 50%;
     width: 12px;
     height: 12px;
     background-color: deepskyblue;
+}
+
+.container_footer {
+    background-color: dimgray;
+    text-align: center;
 }

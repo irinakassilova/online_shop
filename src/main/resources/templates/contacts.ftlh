@@ -39,17 +39,21 @@
         </nav>
     </div>
 </header>
-<#list products as product>
-    <div class="card" style="width: 18rem;">
-        <img src="${product.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${product.name}</h5>
-            <p class="card-text">${product.category.name}</p>
-            <p class="card-text">${product.description}</p>
-            <p class="card-text">${product.price}</p>
-            <a href="#" class="btn btn-primary">Bye</a>
-        </div>
+
+<div class main_container>
+ <h3>Адрес:</h3>
+    <p>г.Алматы ул.Яблочная д.45</p>
+    <h3>Телефон:</h3>
+    <p>+7 777 111 1111</p>
+    <h3>Email:</h3>
+    <p>test@gmail.com</p>
+</div>
+
+<footer>
+    <div class="container">
+        <p class="text_footer">&#169 2021 company</p>
     </div>
-</#list>
+</footer>
+
 </body>
 </html>
