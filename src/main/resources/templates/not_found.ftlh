@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Online-shop</title>
 </head>
 
@@ -16,7 +16,7 @@
 <header>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#"><img src="../image/kisspng-online-shopping-retail-product-floristry-online-shop-cole-workwear-5cc1da06c3dcc8.8055039315562081348023.jpg" alt="logo"></a>
+            <a class="navbar-brand" href="#"><img class="logo" src="image/kisspng-vector-graphics-computer-icons-shopping-cart-onlin-5c94e709b63246.3329197615532623457463.jpg" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +29,7 @@
                         <a class="nav-link" href="/contacts">Контакты</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="../image/kisspng-vector-graphics-computer-icons-shopping-cart-onlin-5c94e709b63246.3329197615532623457463.jpg"></a>
+                        <a class="nav-link" href="#">Корзина</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Личный кабинет</a>
@@ -39,13 +39,11 @@
         </nav>
     </div>
 </header>
-
 <div class="error_container">
     <h3>${resource} с идентификатором ${id} не найден!</h3>
 </div>
-
 <footer>
-    <div class="container">
+    <div class="container_footer">
         <p class="text_footer">&#169 2021 company</p>
     </div>
 </footer>

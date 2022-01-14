@@ -20,7 +20,7 @@ public class ProductDTO {
     private float price;
     private CategoryDTO category;
 
-    static ProductDTO from(Product product) {
+    public static ProductDTO from(Product product) {
         return builder()
                 .id(product.getId())
                 .name(product.getName())

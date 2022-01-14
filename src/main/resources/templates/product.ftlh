@@ -16,7 +16,7 @@
 <header>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#"><img src="../image/kisspng-online-shopping-retail-product-floristry-online-shop-cole-workwear-5cc1da06c3dcc8.8055039315562081348023.jpg" alt="logo"></a>
+            <a class="navbar-brand" href="#"><img class="logo" src="../static/image/kisspng-vector-graphics-computer-icons-shopping-cart-onlin-5c94e709b63246.3329197615532623457463.jpg" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +29,7 @@
                         <a class="nav-link" href="/contacts">Контакты</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="../image/kisspng-vector-graphics-computer-icons-shopping-cart-onlin-5c94e709b63246.3329197615532623457463.jpg"></a>
+                        <a class="nav-link" href="#">Корзина</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Личный кабинет</a>

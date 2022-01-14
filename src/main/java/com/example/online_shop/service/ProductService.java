@@ -17,8 +17,9 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
 
-    public List<Product> findAll(){
-        return productRepository.findAll();
+    public Page<ProductDTO> findAll(Pageable pageable){
+        return productRepository.findAll(pageable)
+                .map(ProductDTO::from);
     }
 
     public Page<ProductDTO> getProducts(int id, Pageable pageable) {
@@ -27,7 +28,7 @@ public class ProductService {
     }
 
     public Product findById(int id){
-        return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("product",id));
+        return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("products",id));
     }
 
     public List<Product> findAllByName(String name){

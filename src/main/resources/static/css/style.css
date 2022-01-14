@@ -69,6 +69,16 @@ h1 {
     background-color: deepskyblue;
 }
 
+.main_container {
+    text-align: center;
+    background-color: rgb(127, 255, 212);
+    height: 500px;
+}
+
+.header_adress {
+    padding-top: 50px;
+}
+
 .container_footer {
     background-color: dimgray;
     text-align: center;

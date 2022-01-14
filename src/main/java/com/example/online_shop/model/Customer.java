@@ -28,4 +28,9 @@ public class Customer {
     @Size(min=1, max=128)
 //    @Column(length = 128)
     private String email;
+
+    @NotBlank
+    @Size(min=5, max=15)
+//    @Column(length = 15)
+    private String password;
 }
