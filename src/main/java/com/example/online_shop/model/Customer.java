@@ -18,19 +18,19 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
-    @Size(min=1, max=128)
-//    @Column(length = 128)
-    private String name;
-
-    @Email
-    @NotBlank
-    @Size(min=1, max=128)
-//    @Column(length = 128)
+//    @Email
+//    @NotBlank
+//    @Size(min=1, max=128)
+    @Column(length = 128)
     private String email;
 
-    @NotBlank
-    @Size(min=5, max=15)
-//    @Column(length = 15)
+//    @NotBlank
+//    @Size(min=5, max=15)
+    @Column(length = 15)
     private String password;
+
+    public Customer(String email, String password) {
+        this.email=email;
+        this.password=password;
+    }
 }
