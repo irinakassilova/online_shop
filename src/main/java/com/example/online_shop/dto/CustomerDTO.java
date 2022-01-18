@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 public class CustomerDTO {
+
         @Email
         @Size(min=3, max=128)
         @NotBlank

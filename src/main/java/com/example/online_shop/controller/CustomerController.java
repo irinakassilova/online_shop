@@ -29,7 +29,7 @@ public class CustomerController {
 
     }
     @PostMapping("/register")
-    public String addRegister(CustomerDTO customerDTO, Model model) {
+    public String addRegister(CustomerDTO customerDTO) {
         customerService.createCustomer(customerDTO);
         return "redirect:/login";
     }

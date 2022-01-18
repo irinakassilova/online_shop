@@ -1,7 +1,6 @@
 package com.example.online_shop.controller;
 
 import com.example.online_shop.exception.ResourceNotFoundException;
-import com.example.online_shop.model.Product;
 import com.example.online_shop.repository.ProductRepository;
 import com.example.online_shop.service.ProductService;
 import com.example.online_shop.service.PropertiesService;
@@ -9,8 +8,6 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,11 +52,9 @@ public class ProductController {
         return "products";
     }
 
-
-
     @GetMapping("/{id}")
     public String getProductById(@PathVariable @Valid int id, Model model) {
-        model.addAttribute("products", productService.findById(id));
+        model.addAttribute("product", productService.findById(id));
         return "product";
     }
 
