@@ -1,14 +1,16 @@
 package com.example.online_shop.controller;
 
 import com.example.online_shop.exception.ResourceNotFoundException;
+import com.example.online_shop.model.Product;
 import com.example.online_shop.repository.ProductRepository;
 import com.example.online_shop.service.ProductService;
 import com.example.online_shop.service.PropertiesService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 @Validated
@@ -23,8 +26,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/products")
 public class ProductController {
     private final ProductService productService;
-    private final PropertiesService propertiesService;
     private  final ProductRepository productRepository;
+    private final   PropertiesService propertiesService;
 
     private static <T> void constructPageable(Page<T> list, int pageSize, Model model, String uri) {
         if (list.hasNext()) {
@@ -52,10 +55,18 @@ public class ProductController {
         return "products";
     }
 
+
+
     @GetMapping("/{id}")
-    public String getProductById(@PathVariable int id, Model model) {
+    public String getProductById(@PathVariable @Valid int id, Model model) {
         model.addAttribute("products", productService.findById(id));
         return "product";
+    }
+
+    @PostMapping("/{id}")
+    @ResponseStatus(HttpStatus.SEE_OTHER)
+    public String getProduct(@RequestParam @Valid @PathVariable int id) {
+    return "redirect:/products/"+id;
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
