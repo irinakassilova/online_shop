@@ -22,8 +22,12 @@ public class Customer {
     @Column(length = 15)
     private String password;
 
+    @Column
+    private boolean enabled;
+
     public Customer(String email, String password) {
         this.email=email;
         this.password=password;
+        this.enabled=true;
     }
 }

@@ -22,10 +22,10 @@ public class ProductService {
                 .map(ProductDTO::from);
     }
 
-    public Page<ProductDTO> getProducts(int id, Pageable pageable) {
-        return productRepository.findAllByCategoryId(id, pageable)
-                .map(ProductDTO::from);
-    }
+//    public Page<ProductDTO> getProducts(int id, Pageable pageable) {
+//        return productRepository.findAllByCategoryId(id, pageable)
+//                .map(ProductDTO::from);
+//    }
 
     public Product findById(int id){
         return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("products",id));

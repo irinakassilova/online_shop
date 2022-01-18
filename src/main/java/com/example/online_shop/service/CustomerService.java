@@ -16,4 +16,12 @@ public class CustomerService {
        Customer customer = new Customer(customerDTO.getEmail(), customerDTO.getPassword());
        customerRepository.save(customer);
     }
+
+//    public Customer findCustomerByEmail(String email) {
+//        return customerRepository.findCustomerByEmail(email);
+//    }
+//
+//    public Customer findCustomerByPassword(String password){
+//        return customerRepository.findCustomerByPassword(password);
+//    }
 }

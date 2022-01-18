@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Controller {
 
     @GetMapping
-    public String roots(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("name", authentication.getName());
+    public String roots() {
         return "main_page";
     }
 

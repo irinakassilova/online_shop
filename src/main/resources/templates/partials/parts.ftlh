@@ -2,7 +2,7 @@
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="#"><img class="logo" src="image/kisspng-vector-graphics-computer-icons-shopping-cart-onlin-5c94e709b63246.3329197615532623457463.jpg" alt="logo"></a>
+                <a class="navbar-brand" href="/"><img class="logo" src="image/kisspng-vector-graphics-computer-icons-shopping-cart-onlin-5c94e709b63246.3329197615532623457463.jpg" alt="logo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
                     <span class="navbar-toggler-icon"></span>
                 </button>
