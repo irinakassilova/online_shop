@@ -7,6 +7,8 @@ import com.example.online_shop.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,6 +36,13 @@ public class BasketService {
     public  Basket getById(int id) {
         return basketRepository.findById(id);
     }
+
+    public void addProductToSession(HttpSession session, int id) {
+        List<Product> products  =new ArrayList<>();
+        session.setAttribute("", products);
+
+    }
+
 
 //    public void addProduct(int id, String name) {
 //    }

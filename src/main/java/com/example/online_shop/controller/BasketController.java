@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.nio.file.AccessDeniedException;
 
 @Controller
@@ -24,9 +25,10 @@ public class BasketController {
 
     @PostMapping("/basket/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addProductToBasket(@RequestParam(value = "id",required = false) int id, int count, Authentication authentication) throws AccessDeniedException {
+    public void addProductToBasket(@RequestParam(value = "id",required = false) int id, int count, Authentication authentication, HttpSession session) throws AccessDeniedException {
         if (authentication != null) {
             basketService.createBasket(id, count);
+            basketService.addProductToSession(session,id);
         } else {
             throw new AccessDeniedException("error.ftlh");
         }
