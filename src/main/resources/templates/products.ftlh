@@ -39,7 +39,6 @@
         <p class="card-text">${product.description}</p>
         <p class="card-text">${product.price}</p>
         <a href="/products/${product.id}">Подробнее</a>
-        <a href="#" class="btn btn-primary">Buy</a>
     </div>
 </div>
 </#list>

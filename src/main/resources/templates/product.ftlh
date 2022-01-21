@@ -22,7 +22,16 @@
             <p class="card-text">${product.category.name}</p>
             <p class="card-text">${product.description}</p>
             <p class="card-text">${product.price}</p>
-            <a href="#" class="btn btn-primary">Bye</a>
+            <form action="/basket" method="post">
+                <input name="id" type="hidden" value="${product.id}">
+                    <input name="count" type="number" required placeholder="Введите количество товара">
+                <button type="submit">Добавить товар в карзину</button>
+                <#if _csrf??>
+                    <input type="hidden"
+                           name="${(_csrf.parameterName)!'csrf-param-name'}"
+                           value="${(_csrf.token)!'csrf-token'}" />
+                </#if>
+            </form>
         </div>
     </div>
 </body>

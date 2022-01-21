@@ -1,6 +1,10 @@
 package com.example.online_shop.controller;
 
 import com.example.online_shop.exception.ResourceNotFoundException;
+import com.example.online_shop.model.Basket;
+import com.example.online_shop.model.Product;
+import com.example.online_shop.repository.BasketRepository;
+import com.example.online_shop.repository.CustomerRepository;
 import com.example.online_shop.repository.ProductRepository;
 import com.example.online_shop.service.ProductService;
 import com.example.online_shop.service.PropertiesService;
@@ -13,9 +17,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @Validated
@@ -52,6 +58,7 @@ public class ProductController {
         return "products";
     }
 
+
     @GetMapping("/{id}")
     public String getProductById(@PathVariable @Valid int id, Model model) {
         model.addAttribute("product", productService.findById(id));
@@ -64,14 +71,6 @@ public class ProductController {
     return "redirect:/products/"+id;
     }
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    private String handleRNF(ResourceNotFoundException ex, Model model) {
-        model.addAttribute("products", ex.getResource());
-        model.addAttribute("id", ex.getId());
-        return "not_found";
-    }
-
     @PostMapping("/filter/name")
     public String findByName(@RequestParam String name, Model model) {
         model.addAttribute("products", productService.findByNameIgnoreCase(name));
@@ -82,5 +81,14 @@ public class ProductController {
     public String findByDescription(@RequestParam String description, Model model) {
         model.addAttribute("products", productService.findByDescriptionIgnoreCase(description));
         return "products";
+    }
+
+
+        @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    private String handleRNF(ResourceNotFoundException ex, Model model) {
+        model.addAttribute("products", ex.getResource());
+        model.addAttribute("id", ex.getId());
+        return "not_found";
     }
 }
