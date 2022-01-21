@@ -13,29 +13,65 @@
 <div id="customers">
     <div class="container">
 
-        <form name="customer" method="post">
-        <#if hasError??>
-            <div class="alert alert-danger" role="alert">
-                ${SPRING_SECURITY_LAST_EXCEPTION.message}
-            </div>
-        </#if>
-            <fieldset>
-                <legend>Please Login</legend>
-                <label for="email">email</label>
-                <input type="text" id="email" name="email"/>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password"/>
-        <#if _csrf??>
-            <input type="hidden"
-                   name="${(_csrf.parameterName)!'csrf-param-name'}"
-                   value="${(_csrf.token)!'csrf-token'}" />
-        </#if>
-                <div class="form-actions">
-                    <button type="submit" class="btn">Log in</button>
-                </div>
-            </fieldset>
-        </form>
+        <#--        <form action="/login" method="post">-->
+        <#--&lt;#&ndash;            <div>&ndash;&gt;-->
+        <#--&lt;#&ndash;                <#if error!false >&ndash;&gt;-->
+        <#--&lt;#&ndash;                    <p >Неверные имя пользователя или пароль !</p>&ndash;&gt;-->
+        <#--&lt;#&ndash;                </#if>&ndash;&gt;-->
+        <#--&lt;#&ndash;            </div>&ndash;&gt;-->
+        <#--&lt;#&ndash;                <legend>Please Login</legend>&ndash;&gt;-->
+        <#--&lt;#&ndash;                <label for="email">email</label>&ndash;&gt;-->
+        <#--&lt;#&ndash;                <input type="email" id="email" name="email" value="${(dto.email)!''}" autofocus />&ndash;&gt;-->
+        <#--&lt;#&ndash;                <label for="password">Password</label>&ndash;&gt;-->
+        <#--&lt;#&ndash;                <input type="password" id="password" name="password" value=""/>&ndash;&gt;-->
 
+
+        <#--&lt;#&ndash;                <button type="submit" class="btn">Log in</button>&ndash;&gt;-->
+
+        <#--&lt;#&ndash;            <#if _csrf??>&ndash;&gt;-->
+        <#--&lt;#&ndash;                <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>&ndash;&gt;-->
+        <#--&lt;#&ndash;            </#if>&ndash;&gt;-->
+
+        <#--            <div>-->
+        <#--                <#if error!false >-->
+        <#--                    <p >Неверные имя пользователя или пароль !</p>-->
+        <#--                </#if>-->
+        <#--            </div>-->
+
+        <#--            <label>E-mail</label>-->
+        <#--            <input type="text" name="username" class="form-control" value="${(customer.email)!''}" autofocus>-->
+
+        <#--            <label>Пароль</label>-->
+        <#--            <input type="text" name="password" class="form-control" value="">-->
+
+        <#--            <button class="btn btn-primary" type="submit">Войти</button>-->
+
+        <#--            <#if _csrf??>-->
+        <#--                <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>-->
+        <#--            </#if>-->
+        <#--        </form>-->
+
+
+        <form action="/login" method="post" class="form-group">
+
+            <div>
+                <#if error!false >
+                    <p >Неверные имя пользователя или пароль !</p>
+                </#if>
+            </div>
+
+            <label>E-mail</label>
+            <input type="text" name="username" class="form-control" value="${(customer.email)!''}" autofocus>
+
+            <label>Пароль</label>
+            <input type="text" name="password" class="form-control" value="">
+
+            <button class="btn btn-primary" type="submit">Войти</button>
+
+            <#if _csrf??>
+                <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
+            </#if>
+        </form>
 
     </div>
 </div>

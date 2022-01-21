@@ -1,23 +1,27 @@
 package com.example.online_shop.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.example.online_shop.model.Customer;
+import lombok.*;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder(access = AccessLevel.PACKAGE)
 public class CustomerDTO {
-
-        @Email
-        @Size(min=3, max=128)
-        @NotBlank
+        private int id;
+        private String fullname;
         private String email;
 
-        @Size(min =3, max=15)
-        @NotBlank
-        private String password;
+        static public  CustomerDTO from(Customer customer){
+                return builder()
+                        .id(customer.getId())
+                        .fullname(customer.getFullname())
+                        .email(customer.getEmail())
+                        .build();
+        }
 }
 

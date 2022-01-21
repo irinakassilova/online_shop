@@ -12,17 +12,25 @@
 <@p.header />
 <div id="foods">
     <div class="foods">
-        <form name="f" method="post">
+        <form action="/register" name="f" method="post">
             <fieldset>
+                <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
                 <legend>Please Register</legend>
                 <label for="email">email</label>
-                <input type="text" id="email" name="email"/>
+                <input type="text" id="email" name="email"  />
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password"/>
                 <div class="form-actions">
                     <button type="submit" class="btn">Reg</button>
                 </div>
             </fieldset>
+
+            <#if errors??>
+                <p>Incorrect register data</p>
+                <#list errors as fieldError>
+                    <p>${fieldError.field} - ${fieldError.defaultMessage}</p>
+                </#list>
+            </#if>
         </form>
 
     </div>

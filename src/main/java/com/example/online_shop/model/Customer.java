@@ -3,31 +3,44 @@ package com.example.online_shop.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-@Getter
-@Setter
-@Builder
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
-@NoArgsConstructor
+@Data
+@Table(name="customers")
 @Entity
-@Table(name = "customers")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Email
+    @NotBlank
+    @Size(min = 1, max = 128)
     @Column(length = 128)
     private String email;
 
-    @Column(length = 15)
+    @NotBlank
+    @Size(min = 8, max = 128)
+    @Column(length = 128)
     private String password;
 
-    @Column
-    private boolean enabled;
+    @NotBlank
+    @Size(min = 1, max = 128)
+    @Column(length = 128)
+    private String fullname;
 
-    public Customer(String email, String password) {
-        this.email=email;
-        this.password=password;
-        this.enabled=true;
-    }
+    @Column
+    @Builder.Default
+    private boolean enabled = true;
+
+    @NotBlank
+    @Size(min = 1, max = 128)
+    @Column(length = 128)
+    @Builder.Default
+    private String role = "USER";
 }
